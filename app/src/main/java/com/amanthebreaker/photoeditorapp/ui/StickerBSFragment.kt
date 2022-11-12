@@ -33,6 +33,7 @@ class StickerBSFragment : BottomSheetDialogFragment() {
                 dismiss()
             }
         }
+
         override fun onSlide(bottomSheet: View, slideOffset: Float) {}
     }
 
@@ -56,17 +57,8 @@ class StickerBSFragment : BottomSheetDialogFragment() {
         rvEmoji.setAdapter(stickerAdapter)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sticker_bs, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     inner class StickerAdapter : RecyclerView.Adapter<StickerAdapter.ViewHolder?>() {
@@ -119,6 +111,4 @@ class StickerBSFragment : BottomSheetDialogFragment() {
     private fun getEmojiByUnicode(unicode: Int): String {
         return String(Character.toChars(unicode))
     }
-
-
 }
